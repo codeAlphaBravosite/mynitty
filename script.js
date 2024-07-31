@@ -18,7 +18,7 @@ function displayCards(data) {
         card.innerHTML = `
             <div class="card-title">${channel['Channel Name']}</div>
             <div>Subscribers: ${channel['Subscribers']}</div>
-            <div><a href="https://youtube.com/channel/${channel['channelId']}" target="_blank">youtube/${channel['Channel Name']}</a></div>
+            <div><a href="https://m.youtube.com/channel/${channel['channelId']}" target="_blank">youtube/${channel['Channel Name']}</a></div>
             <div>
                 <label>
                     <input type="checkbox" onchange="toggleVisibility(${index})"> Viewed?
