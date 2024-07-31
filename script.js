@@ -1,4 +1,3 @@
-
 function loadFile(event) {
     const file = event.target.files[0];
     Papa.parse(file, {
@@ -12,14 +11,25 @@ function loadFile(event) {
 function displayCards(data) {
     const cardsContainer = document.getElementById('cards');
     cardsContainer.innerHTML = '';
-    data.forEach(channel => {
+    data.forEach((channel, index) => {
         const card = document.createElement('div');
         card.className = 'card';
+        card.dataset.index = index; // Store index for filtering
         card.innerHTML = `
             <div class="card-title">${channel['Channel Name']}</div>
             <div>Subscribers: ${channel['Subscribers']}</div>
             <div><a href="https://www.youtube.com/channel/${channel['channelId']}" target="_blank">Visit Channel</a></div>
+            <div>
+                <label>
+                    <input type="checkbox" onchange="toggleVisibility(${index})"> Viewed?
+                </label>
+            </div>
         `;
         cardsContainer.appendChild(card);
     });
+}
+
+function toggleVisibility(index) {
+    const card = document.querySelector(`.card[data-index='${index}']`);
+    card.style.display = card.style.display === 'none' ? '' : 'none';
 }
