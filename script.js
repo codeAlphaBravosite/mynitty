@@ -17,7 +17,7 @@ function displayCards(data) {
         card.dataset.index = index; // Store index for filtering
         card.innerHTML = `
             <div class="card-title">${channel['Channel Name']}</div>
-            <div>Subscribers: ${channel['Subscribers']}</div>
+            <div class="card-titlee">${channel['Subscribers']} subscribers</div>
             <div><a href="https://m.youtube.com/channel/${channel['channelId']}" target="_blank">youtube/${channel['Channel Name']}</a></div>
             <div>
                 <label>
